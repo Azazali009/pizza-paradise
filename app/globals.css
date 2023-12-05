@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::selection {
+  background-color: #ffcb04;
+  color: #050608;
+}
+.banner-image-box {
+  width: 100% !important;
+  height: 490px !important;
+  position: relative;
+  height: 490px !important;
+  /* border-radius: 1rem; */
+  overflow: hidden;
+  background-color: rgb(231, 223, 223);
+}
+
+.banner-image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
