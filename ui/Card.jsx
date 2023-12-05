@@ -9,7 +9,7 @@ const FeatureCard = ({ src }) => {
       href={"/menu/SinglePizza"}
       className="card  border-[2px] border-gray-300 border-opacity-60 bg-base-100 p-4 shadow-xl hover:border-primary"
     >
-      <figure className=" relative rounded-lg border bg-gray-300">
+      <figure className=" relative rounded-lg bg-gray-300">
         <Image
           className="h-60 w-full rounded-lg object-cover"
           width={400}

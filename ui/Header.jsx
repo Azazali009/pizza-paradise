@@ -7,15 +7,8 @@ import Logo from "./Logo";
 
 const Header = () => {
   return (
-    <header className=" text-tertiary flex items-center bg-primary px-12 py-2">
+    <header className=" flex items-center bg-primary px-12 py-2 text-tertiary shadow-lg">
       <Link href={"/"}>
-        {/* <Image
-          src={"/logo.jpg"}
-          width={200}
-          height={200}
-          alt="logo"
-          className=" w-12 h-12 rounded-full"
-        /> */}
         <Logo />
       </Link>
       <Navbar />

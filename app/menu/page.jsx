@@ -8,7 +8,7 @@ const Menu = () => {
         <h1 className="mb-2 text-2xl font-extrabold capitalize tracking-wide text-secondary">
           Pizzas of multiple choice
         </h1>
-        <p className=" text-center tracking-wide text-gray-500 dark:text-white ">
+        <p className=" text-center tracking-wide text-gray-500 dark:text-red-500 ">
           The delicious pizzas ever in the world is one step away from you go
           and order your choice&apos;s{" "}
           <span className=" text-secondary">pizza</span>.
