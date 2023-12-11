@@ -1,12 +1,15 @@
+"use client";
 import Button from "@/ui/Button";
-import React from "react";
+import React, { useState } from "react";
 
-const SinglePizzaDetail = () => {
+const SinglePizzaDetail = ({ title, description }) => {
+  const [value, setValue] = useState(1);
+
   return (
     <div>
       <div className=" mb-8">
         <div className="mb-4 flex items-center">
-          <h1 className=" text-4xl font-extrabold capitalize">Pizza pasta</h1>
+          <h1 className=" text-4xl font-extrabold capitalize">{title}</h1>
           <div className=" ml-auto rounded-full bg-gray-200 p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,10 +27,7 @@ const SinglePizzaDetail = () => {
             </svg>
           </div>
         </div>
-        <p className=" text-gray-400">
-          Fresh Oven Baked pizza Tossed In Hot Peri Peri Sauce And Served With
-          Dip Sauce
-        </p>
+        <p className=" text-gray-400">{description}</p>
       </div>
 
       <div className="collapse bg-base-200">
@@ -96,7 +96,8 @@ const SinglePizzaDetail = () => {
           <input
             type="text"
             className="  h-10 max-w-[5rem] rounded-full border px-2 text-center outline-none hover:border-black focus:border-none focus:ring-1 focus:ring-primary"
-            value={1}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
           />
           <button className=" flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-2xl text-white hover:bg-primary hover:text-tertiary">
             +

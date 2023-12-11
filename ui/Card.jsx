@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const FeatureCard = ({ src }) => {
+const Card = ({ image: src, title, price, subTitle, id }) => {
   return (
     <Link
-      href={"/menu/SinglePizza"}
-      className="card  border-[2px] border-gray-300 border-opacity-60 bg-base-100 p-4 shadow-xl hover:border-primary"
+      href={`/menu/${id}`}
+      className="card border-[2px] border-gray-300 border-opacity-60 bg-base-100 p-4 shadow-xl hover:border-primary"
     >
       <figure className=" relative rounded-lg bg-gray-300">
         <Image
@@ -34,20 +34,17 @@ const FeatureCard = ({ src }) => {
           </svg>
         </div>
       </figure>
-      <div className="card-body">
+      <div className="card-body flex flex-col items-center justify-between">
         <div className=" flex w-full flex-col items-center justify-center py-4  ">
-          <h2 className="card-title font-extrabold">
-            Pizza!
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
+          <h2 className="card-title font-extrabold">{title?.slice(0, 8)}...</h2>
 
-          <p>with 2 drinks and fries</p>
+          <p>{subTitle}</p>
         </div>
 
         <div className=" flex flex-col gap-2 border-t border-gray-200 pt-4">
           <h2 className=" text-xs font-extrabold text-secondary">
             {" "}
-            <span>Rs:</span> 500.00
+            <span>Rs:</span> {price}
           </h2>
           <Button>add to cart</Button>
         </div>
@@ -56,4 +53,4 @@ const FeatureCard = ({ src }) => {
   );
 };
 
-export default FeatureCard;
+export default Card;

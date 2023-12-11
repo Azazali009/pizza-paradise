@@ -1,9 +1,10 @@
+import ShoppingCart from "@/components/shopping cart/ShoppingCart";
 import React from "react";
 
 const Cart = () => {
   return (
     <div className="min-h-screen">
-      <button className="btn glass btn-accent">Glass button</button>
+      <ShoppingCart />
     </div>
   );
 };

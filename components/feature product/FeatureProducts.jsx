@@ -1,7 +1,17 @@
+"use client";
 import React from "react";
-import FeatureCard from "../../ui/Card";
+import { useFeaturePizzas } from "./useFeaturePizzas";
+import CardSkeleton from "@/ui/CardSkeleton";
+import Card from "@/ui/Card";
 
 const FeatureProducts = () => {
+  const { featurePizzas, isLoading, isError } = useFeaturePizzas();
+  if (isError)
+    return (
+      <div className=" my-16 text-center">
+        <p>Failed to fetch pizzas. Try again later</p>
+      </div>
+    );
   return (
     <div className=" mx-auto max-w-6xl border-t border-gray-200 pt-20">
       <h2 className=" mb-12 text-center text-4xl font-black capitalize text-secondary">
@@ -9,12 +19,19 @@ const FeatureProducts = () => {
         <span className="text-primary">One step away</span>
       </h2>
 
-      <div className="  grid grid-cols-[repeat(auto-fill,minmax(10rem,15rem))] justify-center gap-2  text-center">
-        <FeatureCard src={"/pizza.jpg"} />
-        <FeatureCard src={"/pizza-3.jpg"} />
-        <FeatureCard src={"/pizza-2.jpg"} />
-        <FeatureCard src={"/pizza-2.jpg"} />
-      </div>
+      {!isLoading ? (
+        <div className="  grid grid-cols-[repeat(auto-fill,minmax(10rem,15rem))] justify-center gap-2  text-center">
+          {featurePizzas?.map((pizza) => (
+            <Card key={pizza.id} {...pizza} />
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(10rem,15rem))] justify-center gap-2 gap-x-5 gap-y-7">
+          {[...new Array(4)].map((_, index) => (
+            <CardSkeleton key={index} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

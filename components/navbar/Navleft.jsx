@@ -1,14 +1,14 @@
 import CartSvg from "@/ui/CartSvg";
 import DarkModeToggle from "@/ui/DarkModeToggle";
 import PersonSvg from "@/ui/PersonSvg";
-import SearchSvg from "@/ui/SearchSvg";
+import Search from "@/components/searchPizza/SearchPizza";
 import Link from "next/link";
 import React from "react";
 
 const Navleft = () => {
   return (
     <div className=" ml-auto flex gap-1">
-      <SearchSvg />
+      <Search />
       {/* divider */}
       <div className="divider divider-horizontal m-0 h-10 opacity-40 before:w-[1px] before:bg-secondary after:w-[1px] after:bg-secondary"></div>
 

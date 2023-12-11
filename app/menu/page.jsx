@@ -1,10 +1,10 @@
 import React from "react";
-import Pizzas from "@/components/pizzas/pizzas";
+import Pizzas from "@/components/pizzas/Pizzas";
 
 const Menu = () => {
   return (
     <div className="min-h-screen p-8 ">
-      <div className="mb-8 text-center">
+      <div className="mb-20 text-center">
         <h1 className="mb-2 text-2xl font-extrabold capitalize tracking-wide text-secondary">
           Pizzas of multiple choice
         </h1>

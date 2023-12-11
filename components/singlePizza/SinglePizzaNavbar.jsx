@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const PizzaNavbar = () => {
+const PizzaNavbar = ({ title }) => {
   return (
     <ul className=" flex items-center gap-2 text-sm capitalize text-gray-500 ">
       <li>
@@ -26,7 +26,7 @@ const PizzaNavbar = () => {
         </svg>
       </li>
       <li>
-        <p className=" font-semibold text-primary">pizza</p>
+        <p className=" font-semibold text-primary">{title}</p>
       </li>
     </ul>
   );

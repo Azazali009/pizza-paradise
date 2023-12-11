@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/ui/Header";
 import Footer from "@/components/footer/Footer";
+import TanstackProvider from "./TanstackProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className}`}>
-        <Header />
-        <main className=" ">{children}</main>
-        <Footer />
+        <TanstackProvider>
+          <Header />
+          <main className=" min-h-screen ">{children}</main>
+          <Footer />
+        </TanstackProvider>
       </body>
     </html>
   );

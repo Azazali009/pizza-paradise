@@ -2,25 +2,16 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Banner from "./Banner";
+import { useBanner } from "./useBanner";
 
-const images = [
-  {
-    id: Math.random(),
-    imageSrc: "/pizza.jpg",
-    imageName: "pizza banner image third",
-  },
-  {
-    id: Math.random(),
-    imageSrc: "/pizza-2.jpg",
-    imageName: "pizza banner image first",
-  },
-  {
-    id: Math.random(),
-    imageSrc: "/pizza-3.jpg",
-    imageName: "pizza banner image second",
-  },
-];
 const HeroBanner = () => {
+  const { banners, isLoading, isError } = useBanner();
+  if (isLoading)
+    return (
+      <div className=" skeleton flex h-[90vh] w-full items-center justify-center text-xl capitalize">
+        loading...
+      </div>
+    );
   return (
     <div className="pb-20">
       <Carousel
@@ -34,8 +25,8 @@ const HeroBanner = () => {
         dynamicHeight={true}
         className="mx-auto "
       >
-        {images.map((image) => (
-          <Banner key={image.id} image={image} />
+        {banners?.map((banner) => (
+          <Banner key={banner.id} {...banner} />
         ))}
       </Carousel>
     </div>

@@ -1,8 +1,19 @@
 "use client";
-import React from "react";
-import CloseSvg from "./CloseSvg";
+import React, { useState } from "react";
+import CloseSvg from "../../ui/CloseSvg";
+import { useSearchPizzas } from "./useSearchPizzas";
 
 const SearchSvg = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const { searchPizza, isPending, data } = useSearchPizzas();
+
+  function handleCloseDialog() {
+    setSearchValue("");
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    searchPizza(searchValue);
+  }
   return (
     <div className=" flex items-center justify-center ">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -25,16 +36,27 @@ const SearchSvg = () => {
       <dialog id="my_modal_3" className="modal backdrop-blur-md">
         <div className="modal-box">
           <form method="dialog">
-            <button className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">
+            <button
+              onClick={handleCloseDialog}
+              disabled={isPending}
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2"
+            >
               <CloseSvg />
             </button>
           </form>
 
-          <input
-            type="text"
-            placeholder="Search product here..."
-            className="input input-bordered input-md mt-5 w-full rounded-full border-primary focus:outline-primary"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Search product here..."
+              className="input input-bordered input-md mt-5 w-full rounded-full border-primary focus:outline-primary"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              autoFocus={true}
+              disabled={isPending}
+            />
+          </form>
+
           <div className=" flex min-h-[200px] items-center justify-center">
             <p className="py-4 text-gray-400">
               Search with product name to get better result.

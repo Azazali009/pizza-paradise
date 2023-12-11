@@ -4,10 +4,10 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav>
-      <ul className="flex gap-1 text-black/[0.7]">
+      <ul className="flex gap-1">
         <li>
           <Link
-            className="  rounded-md px-4 py-1.5 text-lg font-semibold capitalize"
+            className="rounded-md px-4 py-1.5 text-lg font-semibold capitalize transition-all duration-300 hover:text-secondary"
             href={"/"}
           >
             Home
@@ -15,7 +15,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="  rounded-md px-4 py-1.5 text-lg font-semibold capitalize"
+            className="rounded-md px-4 py-1.5 text-lg font-semibold capitalize transition-all duration-300 hover:text-secondary"
             href={"/menu"}
           >
             menu
@@ -23,7 +23,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            className="  rounded-md px-4 py-1.5 text-lg font-semibold capitalize"
+            className="rounded-md px-4 py-1.5 text-lg font-semibold capitalize transition-all duration-300 hover:text-secondary"
             href={"/contact"}
           >
             contact
