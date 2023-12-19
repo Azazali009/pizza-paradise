@@ -1,6 +1,11 @@
+"use client";
+import { TotalCartItems } from "@/components/shopping cart/TotalCartItems";
+import { useCart } from "@/components/shopping cart/useCart";
 import React from "react";
 
 const CartSvg = () => {
+  const { totalCartItem, isLoading } = TotalCartItems();
+
   return (
     <div className=" flex items-center gap-1">
       <div className=" relative">
@@ -19,7 +24,7 @@ const CartSvg = () => {
           />
         </svg>
         <span className=" absolute -right-[50%] top-0 flex h-6 w-6 -translate-y-[50%] items-center justify-center rounded-full border border-tertiary bg-white text-xs font-bold text-tertiary">
-          9
+          {isLoading ? "..." : totalCartItem}
         </span>
       </div>
 

@@ -23,9 +23,9 @@ const Navleft = () => {
         <CartSvg />
       </Link>
 
-      <div className="divider divider-horizontal m-0 h-10 opacity-40 before:w-[1px] before:bg-secondary after:w-[1px] after:bg-secondary"></div>
+      {/* <div className="divider divider-horizontal m-0 h-10 opacity-40 before:w-[1px] before:bg-secondary after:w-[1px] after:bg-secondary"></div> */}
 
-      <DarkModeToggle />
+      {/* <DarkModeToggle /> */}
     </div>
   );
 };

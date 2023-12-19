@@ -46,3 +46,14 @@ export async function getSearchedPizzas(title) {
 
   return data;
 }
+
+export async function getRecommendedPizza(category) {
+  let { data, error } = await supabase
+    .from("Pizza")
+    .select("*")
+    .eq("category", category);
+
+  if (error) throw new Error(error);
+  console.log(error);
+  return data;
+}

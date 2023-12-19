@@ -1,9 +1,18 @@
 "use client";
-import Button from "@/ui/Button";
-import React, { useState } from "react";
+import React from "react";
+import Variation from "./Variation";
 
-const SinglePizzaDetail = ({ title, description }) => {
-  const [value, setValue] = useState(1);
+const SinglePizzaDetail = ({
+  title,
+  description,
+  size,
+  drink,
+  image,
+  subTitle,
+  id,
+}) => {
+  const sizeArr = JSON.parse(size);
+  const drinkArr = JSON.parse(drink);
 
   return (
     <div>
@@ -29,88 +38,14 @@ const SinglePizzaDetail = ({ title, description }) => {
         </div>
         <p className=" text-gray-400">{description}</p>
       </div>
-
-      <div className="collapse bg-base-200">
-        <input type="checkbox" />
-
-        <div className="text-md collapse-title font-medium">
-          variation
-          <span className="badge ml-3 rounded bg-red-500  capitalize text-white">
-            required
-          </span>
-        </div>
-        <div className="collapse-content">
-          <ul className=" flex flex-col gap-2">
-            <li className="flex justify-between border-b py-3">
-              <div className=" flex items-center gap-3">
-                <input
-                  type="radio"
-                  name="radio-6"
-                  id="small"
-                  className=" radio radio-sm  border-[2px] border-gray-400 checked:radio-warning"
-                />
-                <label className=" capitalize" htmlFor="small">
-                  small
-                </label>
-              </div>
-              <p className=" text-sm text-gray-500">Rs.300.00</p>
-            </li>
-            <li className="flex justify-between border-b py-3">
-              <div className=" flex gap-3">
-                <input
-                  type="radio"
-                  name="radio-6"
-                  id="medium"
-                  className=" radio radio-sm  border-[2px] border-gray-400 checked:radio-warning"
-                />
-                <label className=" capitalize" htmlFor="medium">
-                  medium
-                </label>
-              </div>
-              <p className=" text-sm text-gray-500">Rs.300.00</p>
-            </li>
-            <li className="flex justify-between border-b py-3">
-              <div className=" flex gap-3">
-                <input
-                  type="radio"
-                  name="radio-6"
-                  id="large"
-                  className=" radio radio-sm  border-[2px] border-gray-400 checked:radio-warning"
-                />
-                <label className=" capitalize" htmlFor="large">
-                  large
-                </label>
-              </div>
-              <p className=" text-sm text-gray-500">Rs.300.00</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="mt-8 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <button className=" flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-2xl text-white hover:bg-primary hover:text-tertiary">
-            -
-          </button>
-
-          <input
-            type="text"
-            className="  h-10 max-w-[5rem] rounded-full border px-2 text-center outline-none hover:border-black focus:border-none focus:ring-1 focus:ring-primary"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
-          <button className=" flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-2xl text-white hover:bg-primary hover:text-tertiary">
-            +
-          </button>
-        </div>
-
-        <Button>
-          <p className=" flex gap-6">
-            <span>300.00</span>
-            <span>add to cart</span>
-          </p>
-        </Button>
-      </div>
+      <Variation
+        sizeArr={sizeArr}
+        drinkArr={drinkArr}
+        title={title}
+        image={image}
+        subTitle={subTitle}
+        pizzaId={id}
+      />
     </div>
   );
 };

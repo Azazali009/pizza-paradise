@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import CloseSvg from "../../ui/CloseSvg";
 import { useSearchPizzas } from "./useSearchPizzas";
+import SearchResult from "./SearchResult";
 
 const SearchSvg = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -14,6 +15,7 @@ const SearchSvg = () => {
     e.preventDefault();
     searchPizza(searchValue);
   }
+
   return (
     <div className=" flex items-center justify-center ">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -57,11 +59,7 @@ const SearchSvg = () => {
             />
           </form>
 
-          <div className=" flex min-h-[200px] items-center justify-center">
-            <p className="py-4 text-gray-400">
-              Search with product name to get better result.
-            </p>
-          </div>
+          <SearchResult isPending={isPending} data={data} />
         </div>
       </dialog>
     </div>

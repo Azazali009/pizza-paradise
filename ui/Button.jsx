@@ -1,11 +1,13 @@
 import React from "react";
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick, disabled }) => {
   return (
     <div>
       <button
+        disabled={disabled}
+        onClick={onClick}
         title="add to cart"
-        className=" test capitalize  bg-secondary font-extrabold hover:bg-primary duration-300 hover:text-black/[0.9] text-white px-4 py-2 rounded-full "
+        className="cursor-pointer rounded-full bg-secondary px-4 py-2  font-extrabold capitalize tracking-wider text-white duration-300 hover:bg-primary hover:text-black/[0.9] disabled:cursor-not-allowed disabled:opacity-40 "
       >
         {children}
       </button>

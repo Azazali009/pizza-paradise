@@ -6,6 +6,7 @@ import SomewhatSoope from "./SomewhatSoope";
 import { usePizzas } from "./usePizzas";
 import CardSkeleton from "@/ui/CardSkeleton";
 import ErrorSvg from "@/ui/ErrorSvg";
+import ErrorMessage from "@/ui/ErrorMessage";
 
 const Pizzas = () => {
   const { Pizzas, isLoading, error } = usePizzas();
@@ -21,13 +22,9 @@ const Pizzas = () => {
 
   if (error)
     return (
-      <div className=" mx-auto mt-24 flex min-h-max max-w-2xl flex-col items-center justify-center gap-4">
-        <ErrorSvg />
-
-        <p className=" font-medium ">
-          There was an unknown error occurred. Please try again.
-        </p>
-      </div>
+      <ErrorMessage heading={"failed to load pizza menu."}>
+        There was an unknown error occurred. Please try again.
+      </ErrorMessage>
     );
   const starter = Pizzas?.filter((pizza) => pizza.category === "starter");
   const local = Pizzas?.filter((pizza) => pizza.category === "local");
