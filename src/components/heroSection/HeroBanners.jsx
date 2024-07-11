@@ -9,7 +9,7 @@ const HeroBanner = () => {
   const { banners, isLoading, isError } = useBanner();
   if (isLoading)
     return (
-      <div className=" skeleton flex h-[85vh] w-full items-center justify-center text-xl capitalize">
+      <div className=" skeleton mx-auto mt-5 flex h-[75vh] w-[1200px] items-center justify-center text-xl capitalize">
         loading...
       </div>
     );
