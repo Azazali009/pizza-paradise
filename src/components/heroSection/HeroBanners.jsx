@@ -25,7 +25,7 @@ const HeroBanner = () => {
         interval={3000}
         width="100%"
         dynamicHeight={true}
-        className="mx-auto"
+        className="mx-auto rounded-2xl"
       >
         {banners?.map((banner) => (
           <Banner key={banner.id} {...banner} />

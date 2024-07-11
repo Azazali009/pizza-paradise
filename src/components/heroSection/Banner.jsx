@@ -11,13 +11,13 @@ const Banner = ({
   discPrice,
 }) => {
   return (
-    <div className=" banner-image-box relative">
+    <div className=" banner-image-box relative overflow-hidden rounded-2xl">
       <Image
         src={image}
         alt={discTitle}
         width={500}
         height={500}
-        className="banner-image rounded-2xl"
+        className="banner-image rounded-2xl "
       />
       <div className="absolute left-[50%] top-[50%] w-full -translate-x-[50%] translate-y-[50%] bg-black/[0.5]">
         <h2
